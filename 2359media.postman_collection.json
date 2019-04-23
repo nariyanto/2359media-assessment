@@ -1,0 +1,663 @@
+{
+	"info": {
+		"_postman_id": "46a3a77b-9415-447b-a3da-35ca7c2199d2",
+		"name": "2359media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@mail.com\",\n\t\"password\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3NzM0OCwiZXhwIjoxNTU1OTc3OTQ4LCJzdWIiOiIxIn0.OXS2-QU3AUlG4dH5k6gboQZW2UFi4vtQNOZZIJtb-Q1kYCqJTwF9qlp_HCPNEb62Llr4eNqAI_SsiJe9T6GGdQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3NzUyNiwiZXhwIjoxNTU1OTc4MTI2LCJzdWIiOiIxIn0.b6bfAVOkFy516cnFChFQrXPMQHO9QBFiQ7K50dnRsOlS86jfYQqe2r2HQ7JYjf0EbtSvhdhADkyYu1W8e6qLaw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refreshToken\": \"1555977526536::eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX1JFRlJFU0giLCJlbWFpbCI6ImFkbWluQG1haWwuY29tIiwiaWF0IjoxNTU1OTc3NTI2LCJleHAiOjE1NTU5ODExMjYsInN1YiI6IjEifQ.gNYuT3GauRY4Vnwl-gRhKCqmiNDMQZM1CMgvMdd7d7exjX81sdsqtV-iEyBV38EqNRu7XM-5IM2am76fL0hpMA\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/refresh-tokens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"refresh-tokens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3NzYzNywiZXhwIjoxNTU1OTc4MjM3LCJzdWIiOiIxIn0.WXNwU67-UOPQZMApYEuECNQgvLs-maPIUsY9IROVYbGG-HVtAUAo0koncKuNRp06bOoe_nsMuCOyS5L7OjJzcw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3NzYzNywiZXhwIjoxNTU1OTc4MjM3LCJzdWIiOiIxIn0.WXNwU67-UOPQZMApYEuECNQgvLs-maPIUsY9IROVYbGG-HVtAUAo0koncKuNRp06bOoe_nsMuCOyS5L7OjJzcw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3NzYzNywiZXhwIjoxNTU1OTc4MjM3LCJzdWIiOiIxIn0.WXNwU67-UOPQZMApYEuECNQgvLs-maPIUsY9IROVYbGG-HVtAUAo0koncKuNRp06bOoe_nsMuCOyS5L7OjJzcw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Septiyan\",\n\t\"username\": \"septiyan\",\n\t\"email\": \"septiyan@mail.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3OTQyOSwiZXhwIjoxNTU1OTgwMDI5LCJzdWIiOiIxIn0.uBPXKemD0aiCyM9h6-DKL7CNTfhTmm4GnRsr2nj1G2z17cQf7Q13T7UKIYDpyUYbUbGLv1dyOCS9VT_W4R0ZdA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Admin Site\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW5pc3RyYXRvciIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk3OTQyOSwiZXhwIjoxNTU1OTgwMDI5LCJzdWIiOiIxIn0.uBPXKemD0aiCyM9h6-DKL7CNTfhTmm4GnRsr2nj1G2z17cQf7Q13T7UKIYDpyUYbUbGLv1dyOCS9VT_W4R0ZdA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"emailConfirmToken\":\"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0VNQUlMX0NPTkZJUk0iLCJlbWFpbCI6InNlcHRpeWFuQG1haWwuY29tIiwiaWF0IjoxNTU1OTc4MzIwLCJleHAiOjE1NTg1NzAzMjAsInN1YiI6IjIifQ.TX32_-wF9HmP9y2iuAUIpY2oX5hO_Ggd-rb1m6rf9Xyk886VvEU0WXJm6WXgC8acvyVeC0MAhRDyHmu6W37ocA\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/confirm-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"confirm-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Confirm Email Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiU2VwdGl5YW4iLCJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImVtYWlsIjoic2VwdGl5YW5AbWFpbC5jb20iLCJpYXQiOjE1NTU5Nzg3MTUsImV4cCI6MTU1NTk3OTMxNSwic3ViIjoiMiJ9.vzyXp_uftVT5zf80AuTzaeH84QV-l-zLvO6fqJ0sPc2Qc9E3Nl9UN2Yh4puW8b-JHcV4Yif81vd8XkphwVt1HQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/send-email-confirm-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"send-email-confirm-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiU2VwdGl5YW4iLCJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImVtYWlsIjoic2VwdGl5YW5AbWFpbC5jb20iLCJpYXQiOjE1NTU5Nzg3MTUsImV4cCI6MTU1NTk3OTMxNSwic3ViIjoiMiJ9.vzyXp_uftVT5zf80AuTzaeH84QV-l-zLvO6fqJ0sPc2Qc9E3Nl9UN2Yh4puW8b-JHcV4Yif81vd8XkphwVt1HQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"septiyan@nariyanto.id\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/change-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"change-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiU2VwdGl5YW4iLCJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImVtYWlsIjoic2VwdGl5YW5AbWFpbC5jb20iLCJpYXQiOjE1NTU5Nzg3MTUsImV4cCI6MTU1NTk3OTMxNSwic3ViIjoiMiJ9.vzyXp_uftVT5zf80AuTzaeH84QV-l-zLvO6fqJ0sPc2Qc9E3Nl9UN2Yh4puW8b-JHcV4Yif81vd8XkphwVt1HQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"oldPassword\": \"123456\",\n\t\"newPassword\": \"septiyan\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rooms",
+			"item": [
+				{
+					"name": "List Room",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW4gU2l0ZSIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk4NDIzMywiZXhwIjoxNTU1OTg0ODMzLCJzdWIiOiIxIn0.EA9jQBjp9BDDhZ6JHe5C8purbwRh4tfINFSDDZ4wFIqvbHmdz1ZQQQRFqgy01GEj-s35SJL-FRyVOPbzdoxgDg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Room By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW4gU2l0ZSIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk4NDIzMywiZXhwIjoxNTU1OTg0ODMzLCJzdWIiOiIxIn0.EA9jQBjp9BDDhZ6JHe5C8purbwRh4tfINFSDDZ4wFIqvbHmdz1ZQQQRFqgy01GEj-s35SJL-FRyVOPbzdoxgDg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW4gU2l0ZSIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk4NDIzMywiZXhwIjoxNTU1OTg0ODMzLCJzdWIiOiIxIn0.EA9jQBjp9BDDhZ6JHe5C8purbwRh4tfINFSDDZ4wFIqvbHmdz1ZQQQRFqgy01GEj-s35SJL-FRyVOPbzdoxgDg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"SINGLE\",\n\t\"description\": \"Single Room\",\n\t\"image\": \"\",\n\t\"quantity\": 10,\n\t\"price\": 300000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Room",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW4gU2l0ZSIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk4NDIzMywiZXhwIjoxNTU1OTg0ODMzLCJzdWIiOiIxIn0.EA9jQBjp9BDDhZ6JHe5C8purbwRh4tfINFSDDZ4wFIqvbHmdz1ZQQQRFqgy01GEj-s35SJL-FRyVOPbzdoxgDg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"Single Room Edit\",\n\t\"image\": \"\",\n\t\"quantity\": 10,\n\t\"price\": 300000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Room",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJUT0tFTl9UWVBFX0FDQ0VTUyIsInVzZXJuYW1lIjoiQWRtaW4gU2l0ZSIsInVzZXJSb2xlIjoiUk9MRV9TVVBFUkFETUlOIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsImlhdCI6MTU1NTk4NDIzMywiZXhwIjoxNTU1OTg0ODMzLCJzdWIiOiIxIn0.EA9jQBjp9BDDhZ6JHe5C8purbwRh4tfINFSDDZ4wFIqvbHmdz1ZQQQRFqgy01GEj-s35SJL-FRyVOPbzdoxgDg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"Single Room Edit\",\n\t\"image\": \"\",\n\t\"quantity\": 10,\n\t\"price\": 300000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000"
+				}
+			},
+			"response": []
+		}
+	]
+}
